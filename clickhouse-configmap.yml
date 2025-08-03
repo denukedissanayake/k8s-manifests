@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: clickhouse-custom-config
+data:
+  custom.xml: |
+    <yandex>
+      <max_thread_pool_size>128</max_thread_pool_size>
+      <background_pool_size>32</background_pool_size>
+      <background_move_pool_size>8</background_move_pool_size>
+    </yandex>

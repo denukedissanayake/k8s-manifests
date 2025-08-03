@@ -23,3 +23,11 @@ spec:
               value: "default"
             - name: CLICKHOUSE_PASSWORD
               value: "123"
+          volumeMounts:
+            - name: clickhouse-config-volume
+              mountPath: /etc/clickhouse-server/config.d/custom.xml
+              subPath: custom.xml
+      volumes:
+        - name: clickhouse-config-volume
+          configMap:
+            name: clickhouse-custom-config
