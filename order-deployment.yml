@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: order-containers
-          image: denukedissanayake/lugx-order-service:1.0.4
+          image: denukedissanayake/lugx-order-service:latest
           ports:
             - containerPort: 8001
           env:

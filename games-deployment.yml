@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: games-containers
-          image: denukedissanayake/lugx-game-service:2.0.5
+          image: denukedissanayake/lugx-game-service:latest
           ports:
             - containerPort: 8002
           env:
