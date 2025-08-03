@@ -5,6 +5,9 @@ metadata:
 data:
   custom.xml: |
     <yandex>
+      <listen_host>0.0.0.0</listen_host>
+      <tcp_port>9000</tcp_port>
+      <http_port>8123</http_port>
       <max_thread_pool_size>128</max_thread_pool_size>
       <background_pool_size>32</background_pool_size>
       <background_move_pool_size>8</background_move_pool_size>
