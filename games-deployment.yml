@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: games-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: games
+  template:
+    metadata:
+      labels:
+        app: games
+    spec:
+      containers:
+        - name: games-containers
+          image: denukedissanayake/lugx-game-service:2.0.5
+          ports:
+            - containerPort: 8002
+          env:
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: POSTGRES_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: POSTGRES_PASSWORD
