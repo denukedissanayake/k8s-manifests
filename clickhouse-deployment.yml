@@ -15,16 +15,22 @@ spec:
       containers:
         - name: clickhouse
           image: denukedissanayake/lugx-clickhouse:latest
-          imagePullPolicy: Always
           ports:
             - containerPort: 8123
             - containerPort: 9000
-            - containerPort: 9009
           env:
             - name: CLICKHOUSE_USER
               value: "default"
             - name: CLICKHOUSE_PASSWORD
-              value: "test123"
+              value: "123"
+          volumeMounts:
+            - name: clickhouse-config-volume
+              mountPath: /etc/clickhouse-server/config.d/custom.xml
+              subPath: custom.xml
+      volumes:
+        - name: clickhouse-config-volume
+          configMap:
+            name: clickhouse-custom-config
 # apiVersion: apps/v1
 # kind: Deployment
 # metadata:
@@ -42,19 +48,13 @@ spec:
 #       containers:
 #         - name: clickhouse
 #           image: denukedissanayake/lugx-clickhouse:latest
+#           imagePullPolicy: Always
 #           ports:
 #             - containerPort: 8123
 #             - containerPort: 9000
+#             - containerPort: 9009
 #           env:
 #             - name: CLICKHOUSE_USER
 #               value: "default"
 #             - name: CLICKHOUSE_PASSWORD
-#               value: "123"
-#           volumeMounts:
-#             - name: clickhouse-config-volume
-#               mountPath: /etc/clickhouse-server/config.d/custom.xml
-#               subPath: custom.xml
-#       volumes:
-#         - name: clickhouse-config-volume
-#           configMap:
-#             name: clickhouse-custom-config
+#               value: "test123"
