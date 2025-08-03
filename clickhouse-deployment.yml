@@ -23,5 +23,3 @@ spec:
               value: "default"
             - name: CLICKHOUSE_PASSWORD
               value: "123"
-            - name: CLICKHOUSE_LISTEN_HOST
-              value: "0.0.0.0"
