@@ -17,3 +17,14 @@ spec:
           image: denukedissanayake/lugx-analytics-service:latest
           ports:
             - containerPort: 8000
+          env:
+            - name: CLICKHOUSE_USER
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: CLICKHOUSE_USER
+            - name: CLICKHOUSE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: CLICKHOUSE_PASSWORD
